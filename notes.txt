@@ -26,3 +26,13 @@ bytecode = 0x + 6080604052348015600f57600080fd5b50604580601d6000396000f3fe + dep
 60 80 60 40 52 34 80 15 60 0f 57 60 00 80 fd 5b 50 60 45 80 60 1d 60 00 39 60 00 f3 fe
 => check in yellow paper ethereum
 Ex: 0x60: PUSH
+
+
+web3.eth.sendTransaction({from: accounts[0], to: "0xdab95fAD911393C4a43112a381b6CF69fCDADa98", data: "0xa26759cb", value: "5000000000000000000"})
+
+/*
+0xdab95fAD911393C4a43112a381b6CF69fCDADa98: contract address
+data: "0xa26759cb" // go to https://emn178.github.io/online-tools/keccak_256.html
+// input: addFunds()
+// output: a26759cbc968c68c5eb5853f763227a619bc9612320b36b21463d21f1dc9ec98
+*/
