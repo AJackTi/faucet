@@ -1,0 +1,28 @@
+#1
+const instance = await Faucet.deployed()
+const funds = await instance.funds()
+funds.toString()
+
+#2
+const instance = new web3.eth.Contract(Faucet.abi, "0x8BAedE0810fe1CaD830BF8907D3c3AC3F2e45233")
+const funds = await instance.methods.funds().call()
+
+/*
+0x8BAedE0810fe1CaD830BF8907D3c3AC3F2e45233: contract address
+*/
+
+
+web3.eth.sendTransaction({from: accounts[0], to: "0x9C999cBa0EfF19949Ce92A04d5f0A314a73e9ED5", value: "10000000000000000000"})
+web3.eth.getBlock("9")
+
+web3.eth.getCode("0x9C999cBa0EfF19949Ce92A04d5f0A314a73e9ED5") => deployedBytecode
+
+/*
+0x9C999cBa0EfF19949Ce92A04d5f0A314a73e9ED5: contract address
+*/
+
+bytecode = 0x + 6080604052348015600f57600080fd5b50604580601d6000396000f3fe + deployedBytecode
+
+60 80 60 40 52 34 80 15 60 0f 57 60 00 80 fd 5b 50 60 45 80 60 1d 60 00 39 60 00 f3 fe
+=> check in yellow paper ethereum
+Ex: 0x60: PUSH
