@@ -36,3 +36,14 @@ data: "0xa26759cb" // go to https://emn178.github.io/online-tools/keccak_256.htm
 // input: addFunds()
 // output: a26759cbc968c68c5eb5853f763227a619bc9612320b36b21463d21f1dc9ec98
 */
+
+
+const instance = await Faucet.deployed()
+
+instance.addFunds({from: accounts[0], value: "200000000"})
+instance.addFunds({from: accounts[1], value: "200000000"})
+
+instance.getFunderAtIndex(0)
+instance.getFunderAtIndex(1)
+
+instance.getAllFunders()
