@@ -40,8 +40,10 @@ data: "0xa26759cb" // go to https://emn178.github.io/online-tools/keccak_256.htm
 
 const instance = await Faucet.deployed()
 
-instance.addFunds({from: accounts[0], value: "200000000"})
+instance.addFunds({from: accounts[0], value: "1000000000000000000"})
 instance.addFunds({from: accounts[1], value: "200000000"})
+
+instance.withdraw("50000000000000000", {from: accounts[0]})
 
 instance.getFunderAtIndex(0)
 instance.getFunderAtIndex(1)
