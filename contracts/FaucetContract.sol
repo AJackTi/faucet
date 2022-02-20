@@ -3,6 +3,19 @@ pragma solidity ^0.8.0;
 
 contract Faucet {
     uint public numberOfFunders;
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner {
+        require(
+            msg.sender == owner,
+            "Only owner can call this function");
+        _;
+    }
+
     mapping(address => bool) private funders;
     mapping(uint => address) private lutFunders;
 
@@ -13,6 +26,10 @@ contract Faucet {
 
     receive() external payable {}
 
+    function transferOwnership(address newOwner) external onlyOwner {
+        owner = newOwner;
+    }
+
     function addFunds() external payable {
         address funder = msg.sender;
 
@@ -21,6 +38,14 @@ contract Faucet {
             funders[funder] = true;
             lutFunders[index] = funder;
         }
+    }
+
+    function test1() external onlyOwner {
+
+    }
+
+    function test2() external onlyOwner {
+
     }
 
     function withdraw(uint withdrawAmount) external limitWithdraw(withdrawAmount) {
